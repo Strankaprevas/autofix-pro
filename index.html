@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoPro Garage - Elite Car Repair & Service</title>
+    <meta name="description" content="ASE-certified auto repair with 24/7 booking, warranties, and transparent pricing. Engine, brakes, tires - all makes/models.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</head>
+<body class="font-inter bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 shadow-lg border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">AutoPro Garage</div>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#home" class="hover:text-red-600 font-medium transition">Home</a></li>
+                    <li><a href="#services" class="hover:text-red-600 font-medium transition">Services</a></li>
+                    <li><a href="#about" class="hover:text-red-600 font-medium transition">About</a></li>
+                    <li><a href="#testimonials" class="hover:text-red-600 font-medium transition">Reviews</a></li>
+                    <li><a href="#contact" class="hover:text-red-600 font-medium transition">Contact</a></li>
+                </ul>
+                <button onclick="document.getElementById('booking-modal').classList.remove('hidden')" class="bg-red-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-red-700 transition">Book Now</button>
+                <button class="md:hidden p-2" onclick="toggleMobileMenu()">☰</button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2">
+                <a href="#home" class="block py-2 hover:text-red-600">Home</a>
+                <a href="#services" class="block py-2 hover:text-red-600">Services</a>
+                <a href="#about" class="block py-2 hover:text-red-600">About</a>
+                <a href="#testimonials" class="block py-2 hover:text-red-600">Reviews</a>
+                <a href="#contact" class="block py-2 hover:text-red-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="min-h-screen bg-cover bg-center flex items-center" style="background-image: url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white text-center">
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">Elite Auto Repair</h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">ASE-Certified Technicians | 24-Month Warranty | Same-Day Service Available</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="document.getElementById('booking-modal').classList.remove('hidden')" class="bg-red-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-red-700 transition shadow-2xl">Schedule Service</button>
+                    <button onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})" class="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-gray-900 transition">View Services</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Carousel -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">Our Core Services</h2>
+            <div class="swiper services-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide p-6">
+                        <div class="bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-3xl p-8 text-center shadow-2xl hover:scale-105 transition">
+                            <div class="text-5xl mb-6">🔧</div>
+                            <h3 class="text-2xl font-bold mb-4">Engine Diagnostics & Repair</h3>
+                            <p>Full OEM-level diagnostics for all makes/models. Check engine light? We fix it right.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide p-6">
+                        <div class="bg-gradient-to-br from-green-500 to-green-600 text-white rounded-3xl p-8 text-center shadow-2xl hover:scale-105 transition">
+                            <div class="text-5xl mb-6">🛞</div>
+                            <h3 class="text-2xl font-bold mb-4">Brakes & Tires</h3>
+                            <p>Precision alignment, rotation, new tires from Michelin to Bridgestone. Safety first.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide p-6">
+                        <div class="bg-gradient-to-br from-orange-500 to-orange-600 text-white rounded-3xl p-8 text-center shadow-2xl hover:scale-105 transition">
+                            <div class="text-5xl mb-6">🔋</div>
+                            <h3 class="text-2xl font-bold mb-4">Electrical & Battery</h3>
+                            <p>Alternators, starters, EV charging prep. 98% first-time fix rate.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide p-6">
+                        <div class="bg-gradient-to-br from-purple-500 to-purple-600 text-white rounded-3xl p-8 text-center shadow-2xl hover:scale-105 transition">
+                            <div class="text-5xl mb-6">⚙️</div>
+                            <h3 class="text-2xl font-bold mb-4">Oil & Maintenance</h3>
+                            <p>Synthetic oil changes in 20 mins. Fleet services welcome.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <h2 class="text-4xl font-bold mb-6">Why AutoPro Stands Above</h2>
+                <div class="space-y-4 text-lg">
+                    <div class="flex items-center"><span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>ASE Master Certified Techs</div>
+                    <div class="flex items-center"><span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>2-Year/24K Mile Warranty</div>
+                    <div class="flex items-center"><span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Transparent Digital Estimates</div>
+                    <div class="flex items-center"><span class="w-2 h-2 bg-red-600 rounded-full mr-3"></span>Free Shuttle & Loaners</div>
+                </div>
+                <div class="mt-8 grid grid-cols-2 gap-4 text-3xl font-bold text-red-600">
+                    <div>10K+<p class="text-sm font-normal text-gray-600">Cars Serviced</p></div>
+                    <div>4.9⭐<p class="text-sm font-normal text-gray-600">Google Rating</p></div>
+                </div>
+            </div>
+            <div data-aos="fade-left">
+                <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Technicians working" class="rounded-2xl shadow-2xl w-full">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Carousel -->
+    <section id="testimonials" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">What Our Clients Say</h2>
+            <div class="swiper testimonials-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="text-center p-8 max-w-md mx-auto">
+                            <div class="text-6xl mb-4">⭐⭐⭐⭐⭐</div>
+                            <p class="text-lg italic mb-6">"Fixed my BMW's transmission same day. Honest pricing, no upsell. Highly recommend!"</p>
+                            <div class="font-semibold">Sarah K. - BMW Owner</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="text-center p-8 max-w-md mx-auto">
+                            <div class="text-6xl mb-4">⭐⭐⭐⭐⭐</div>
+                            <p class="text-lg italic mb-6">"Best brakes job ever. Warranty gave peace of mind. Will be back for oil change."</p>
+                            <div class="font-semibold">Mike R. - Toyota Driver</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="text-center p-8 max-w-md mx-auto">
+                            <div class="text-6xl mb-4">⭐⭐⭐⭐⭐</div>
+                            <p class="text-lg italic mb-6">"EV battery diagnostic was spot on. Professional team, clean shop."</p>
+                            <div class="font-semibold">Lisa T. - Tesla Owner</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Map -->
+    <section id="contact" class="py-24 bg-gray-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+            <h2 class="text-4xl font-bold mb-6" data-aos="fade-up">Ready For Your Repair?</h2>
+            <p class="text-xl mb-8">Call now or book online. Free estimates within 24hrs.</p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+                <a href="tel:+15551234567" class="bg-red-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-red-700">📞 (555) 123-4567</a>
+                <button onclick="document.getElementById('booking-modal').classList.remove('hidden')" class="border-2 border-red-600 text-red-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-red-600 hover:text-white transition">Instant Booking</button>
+            </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <form id="contact-form" class="space-y-4" data-aos="fade-up">
+                <input type="text" id="name" placeholder="Your Name" class="w-full p-4 rounded-xl bg-gray-800 border-none text-white placeholder-gray-400" required>
+                <input type="tel" id="phone" placeholder="Phone" class="w-full p-4 rounded-xl bg-gray-800 border-none text-white placeholder-gray-400" required>
+                <input type="email" id="email" placeholder="Email" class="w-full p-4 rounded-xl bg-gray-800 border-none text-white placeholder-gray-400" required>
+                <textarea id="message" rows="5" placeholder="Vehicle issue or service needed..." class="w-full p-4 rounded-xl bg-gray-800 border-none text-white placeholder-gray-400 resize-none" required></textarea>
+                <button type="submit" class="w-full bg-red-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-red-700 transition">Send Request</button>
+            </form>
+            <div data-aos="fade-left">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.566745284715!2d-73.987319684593!3d40.748447979328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a4b91473d5%3A0x2a3d7e9f5c4b2c0e!2sAuto%20Repair%20Shop!5e0!3m2!1sen!2sus!4v1630000000000" width="100%" height="300" style="border:0; border-radius: 1rem;" allowfullscreen="" loading="lazy"></iframe>
+                <div class="mt-4 text-left space-y-2">
+                    <p><strong>🕒 Hours:</strong> Mon-Sun 8AM-7PM</p>
+                    <p><strong>📍 Address:</strong> 123 Gear St, Auto City, AC 12345</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div id="booking-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <button onclick="document.getElementById('booking-modal').classList.add('hidden')" class="float-right text-2xl">&times;</button>
+            <h3 class="text-2xl font-bold mb-6">Quick Booking</h3>
+            <form id="booking-form" class="space-y-4">
+                <input type="text" placeholder="Vehicle Make/Model" class="w-full p-4 border border-gray-300 rounded-xl" required>
+                <input type="date" class="w-full p-4 border border-gray-300 rounded-xl" required>
+                <textarea placeholder="Describe issue..." rows="3" class="w-full p-4 border border-gray-300 rounded-xl resize-none"></textarea>
+                <button type="submit" class="w-full bg-red-600 text-white py-4 rounded-xl font-bold hover:bg-red-700">Confirm Appointment</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="bg-gray-900 text-white py-12 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2026 AutoPro Garage. ASE Certified | All Rights Reserved | <a href="#" class="text-red-600 hover:underline">Privacy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({ duration: 1000 });
+        
+        // Swiper Carousels
+        new Swiper('.services-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+        });
+        new Swiper('.testimonials-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: { el: '.swiper-pagination', clickable: true },
+            breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } },
+            autoplay: { delay: 5000 }
+        });
+
+        // Mobile Menu
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // EmailJS - Replace YOUR_PUBLIC_KEY, YOUR_SERVICE_ID, YOUR_TEMPLATE_ID
+        emailjs.init('YOUR_PUBLIC_KEY'); // Get at emailjs.com
+        document.getElementById('contact-form').addEventListener('submit', e => {
+            e.preventDefault();
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+                from_name: document.getElementById('name').value,
+                from_phone: document.getElementById('phone').value,
+                from_email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            }).then(() => {
+                alert('Request sent! We\'ll reply in 1hr.');
+                e.target.reset();
+            }).catch(err => alert('Error: ' + err.text));
+        });
+
+        document.getElementById('booking-form').addEventListener('submit', e => {
+            e.preventDefault();
+            alert('Appointment confirmed! Check email for details.');
+            document.getElementById('booking-modal').classList.add('hidden');
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            document.querySelector('nav').style.background = window.scrollY > 100 ? 'rgba(255,255,255,0.98)' : 'rgba(255,255,255,0.95)';
+        });
+    </script>
+</body>
+</html>
